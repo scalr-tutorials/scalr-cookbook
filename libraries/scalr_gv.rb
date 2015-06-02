@@ -17,7 +17,7 @@ module Scalr
     # Retrieve Global Variables
     # We use szradm and not environment variables so that we can run
     # in a standalone chef-client run
-    p = Chef::Mixin::ShellOut.shell_out '/usr/local/bin/szradm',  '-q', 'list-global-variables'
+    p = Chef::Mixin::ShellOut.shell_out 'szradm',  '-q', 'list-global-variables'
     gv_response = p.stdout
     gv_doc = REXML::Document.new gv_response
 
